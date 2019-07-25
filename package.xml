@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <package format="2">
 
-  <name>isi_raman_base</name>
+  <name>isi_hes_base</name>
   <version>0.0.1</version>
   <description>
-     IS Instruments ROS interface for interacting with probe
+     IS Instruments ROS interface for interacting HES
   </description>
 
   <maintainer email="bknight@i3drobotics.com">Ben Knight</maintainer>
