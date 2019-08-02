@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!--
+Copyright (c) 2019, I3D Robotics Ltd.
+-->
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:macro name="isi_hes_probe" params="probe_name:=hes_probe en_mesh:=false">
+        <xacro:property name="mesh_file" value="package://isi_hes_base/mesh/hes_probe.stl"/>
+        <xacro:property name="mesh_offset_xyz" value="0 0 0"/>
+        <xacro:property name="mesh_offset_rpy" value="0 0 0"/>
+        <xacro:property name="box_offset_xyz" value="0 0 0"/>
+        <xacro:property name="box_offset_rpy" value="0 0 0"/>
+
+        <xacro:property name="width" value="0.5"/>
+        <xacro:property name="length" value="0.5"/>
+        <xacro:property name="height" value="0.5"/>
+
+        <link name="${probe_name}_base_link" />
+        <link name="${probe_name}_mount_point"/>
+
+        <link name="${probe_name}_lens" />
+        <link name="${probe_name}_standoff" />
+       
+        <link name="${probe_name}_center">
+            <visual>
+                <xacro:if value="${(en_mesh == 'true')}">
+                    <origin xyz="${mesh_offset_xyz}" rpy="${mesh_offset_rpy}"/>
+                </xacro:if>
+                <xacro:if value="${(en_mesh == 'false')}">
+                    <origin xyz="${box_offset_xyz}" rpy="${box_offset_rpy}"/>
+                </xacro:if>
+                <geometry>
+                    <xacro:if value="${(en_mesh == 'true')}">
+                        <mesh filename="${mesh_file}"/>
+                    </xacro:if>
+                    <xacro:if value="${(en_mesh == 'false')}">
+                        <box size="${length} ${width} ${height}"/>
+                    </xacro:if>
+                </geometry>
+                <xacro:if value="${(en_mesh == 'false')}">
+                    <material name="${probe_name}_colour">
+                        <color rgba="0.1 0.1 0.1 1"/>
+                    </material>
+                </xacro:if>
+            </visual>
+        </link>
+
+        <joint name="${probe_name}_base_mount" type="fixed">
+            <parent link="${probe_name}_base_link"/>
+            <child link="${probe_name}_mount_point"/>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </joint>
+
+        <joint name="${probe_name}_base_center" type="fixed">
+            <parent link="${probe_name}_base_link"/>
+            <child link="${probe_name}_center"/>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </joint>
+
+        <joint name="${probe_name}_center_lens" type="fixed">
+            <parent link="${probe_name}_center"/>
+            <child link="${probe_name}_lens"/>
+            <origin xyz="0 0 0" rpy="${-pi/2} 0 0" />
+        </joint>
+
+        <joint name="${probe_name}_lens_standoff" type="fixed">
+            <parent link="${probe_name}_lens"/>
+            <child link="${probe_name}_standoff"/>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </joint>
+
+    </xacro:macro>
+</robot>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--XML-->
+<launch>
+    <!-- SETUP ARGUMENTS -->
+    <!-- enable/disable rviz -->
+    <arg name="rviz" default="false" />
+
+    <!-- SETUP ROBOT MODEL -->
+    <param name="isi_hes_probe_robot_description" command="$(find xacro)/xacro '$(find isi_hes_base)/urdf/hes_probe_scene.urdf.xacro'" />
+    <arg name="use_tf_static" default="false"/>
+    <node name="robot_state_publisher_isi_hes_probe" pkg="robot_state_publisher" type="state_publisher">
+        <remap from="robot_description" to="isi_hes_probe_robot_description"/>
+        <param name="use_tf_static" value="$(arg use_tf_static)"/>
+    </node>
+
+    <!-- DISPLAY -->
+    <!-- run rviz with config file -->
+    <node if="$(arg rviz)" pkg="rviz" type="rviz" name="rivz" 
+        args="-d $(find isi_hes_base)/rviz/scene.rviz"/>
+
+</launch>
