@@ -20,6 +20,11 @@ Copyright (c) 2019, I3D Robotics Ltd.
 
         <link name="${probe_name}_lens" />
         <link name="${probe_name}_standoff" />
+
+        <link name="${probe_name}_mount_point_1"/>
+        <link name="${probe_name}_mount_point_2"/>
+        <link name="${probe_name}_mount_point_3"/>
+        <link name="${probe_name}_mount_point_4"/>
        
         <link name="${probe_name}_center">
             <visual>
@@ -54,19 +59,41 @@ Copyright (c) 2019, I3D Robotics Ltd.
         <joint name="${probe_name}_base_center" type="fixed">
             <parent link="${probe_name}_base_link"/>
             <child link="${probe_name}_center"/>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 0.05" rpy="0 0 0" />
         </joint>
 
         <joint name="${probe_name}_center_lens" type="fixed">
             <parent link="${probe_name}_center"/>
             <child link="${probe_name}_lens"/>
-            <origin xyz="0 0 0" rpy="${-pi/2} 0 0" />
+            <origin xyz="0 0.1 0" rpy="${-pi/2} 0 0" />
         </joint>
 
         <joint name="${probe_name}_lens_standoff" type="fixed">
             <parent link="${probe_name}_lens"/>
             <child link="${probe_name}_standoff"/>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 1" rpy="0 0 0" />
+        </joint>
+
+        <joint name="${probe_name}_mount_point_1_joint" type="fixed">
+            <parent link="${probe_name}_base_link"/>
+            <child link="${probe_name}_mount_point_1"/>
+            <origin xyz="0.0176775 0.0176775 0" rpy="0 0 0" />
+        </joint>
+
+        <joint name="${probe_name}_mount_point_2_joint" type="fixed">
+            <parent link="${probe_name}_base_link"/>
+            <child link="${probe_name}_mount_point_2"/>
+            <origin xyz="-0.0176775 0.0176775 0" rpy="0 0 0" />
+        </joint>
+        <joint name="${probe_name}_mount_point_3_joint" type="fixed">
+            <parent link="${probe_name}_base_link"/>
+            <child link="${probe_name}_mount_point_3"/>
+            <origin xyz="0.0176775 -0.0176775 0" rpy="0 0 0" />
+        </joint>
+        <joint name="${probe_name}_mount_point_4_joint" type="fixed">
+            <parent link="${probe_name}_base_link"/>
+            <child link="${probe_name}_mount_point_4"/>
+            <origin xyz="-0.0176775 -0.0176775 0" rpy="0 0 0" />
         </joint>
 
     </xacro:macro>
