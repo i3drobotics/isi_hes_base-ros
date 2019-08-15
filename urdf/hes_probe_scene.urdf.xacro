@@ -7,5 +7,14 @@ Copyright (c) 2019, I3D Robotics Ltd.
     xmlns:xacro="http://ros.org/wiki/xacro">
 
     <xacro:include filename="$(find isi_hes_base)/urdf/hes_probe.urdf.xacro"/>
-    <xacro:isi_hes_probe en_mesh="true"/>
+    <xacro:include filename="$(find i3dr_deimos)/urdf/deimos.urdf.xacro"/>
+    <xacro:isi_hes_probe probe_name="hes_probe" en_mesh="true"/>
+    <xacro:deimos_camera camera_name="deimos" en_mesh="true"/>
+
+    <joint name="hes_probe_camera_mount" type="fixed">
+        <parent link="hes_probe_camera_mount"/>
+        <child link="deimos_base_link"/>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </joint>
+
 </robot>
