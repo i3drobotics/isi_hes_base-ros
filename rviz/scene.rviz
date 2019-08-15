@@ -6,7 +6,9 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /HESProbeModel1
         - /TF1
+        - /TF1/Frames1
       Splitter Ratio: 0.5
     Tree Height: 775
   - Class: rviz/Selection
@@ -51,52 +53,173 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Alpha: 1
+    - Alpha: 0.5
       Class: rviz/RobotModel
       Collision Enabled: false
-      Enabled: false
+      Enabled: true
       Links:
         All Links Enabled: true
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        deimos_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        deimos_cameraLeft:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        deimos_cameraLeft_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        deimos_cameraRight:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        deimos_cameraRight_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        deimos_center:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        deimos_depth_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        deimos_mount_point_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        deimos_mount_point_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        deimos_probe_mount:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        hes_probe_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        hes_probe_camera_mount:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        hes_probe_center:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        hes_probe_lens:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        hes_probe_mount_point:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        hes_probe_mount_point_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        hes_probe_mount_point_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        hes_probe_mount_point_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        hes_probe_mount_point_4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        hes_probe_standoff:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
       Name: HESProbeModel
       Robot Description: isi_hes_probe_robot_description
       TF Prefix: ""
       Update Interval: 0
-      Value: false
+      Value: true
       Visual Enabled: true
     - Class: rviz/TF
       Enabled: true
       Frame Timeout: 15
       Frames:
-        All Enabled: true
+        All Enabled: false
+        deimos_base_link:
+          Value: true
+        deimos_cameraLeft:
+          Value: true
+        deimos_cameraLeft_optical:
+          Value: true
+        deimos_cameraRight:
+          Value: true
+        deimos_cameraRight_optical:
+          Value: true
+        deimos_center:
+          Value: true
+        deimos_depth_optical_frame:
+          Value: true
+        deimos_mount_point_1:
+          Value: true
+        deimos_mount_point_2:
+          Value: true
+        deimos_probe_mount:
+          Value: true
         hes_probe_base_link:
-          Value: true
+          Value: false
+        hes_probe_camera_mount:
+          Value: false
         hes_probe_center:
-          Value: true
+          Value: false
         hes_probe_lens:
-          Value: true
+          Value: false
         hes_probe_mount_point:
-          Value: true
+          Value: false
         hes_probe_mount_point_1:
-          Value: true
+          Value: false
         hes_probe_mount_point_2:
-          Value: true
+          Value: false
         hes_probe_mount_point_3:
-          Value: true
+          Value: false
         hes_probe_mount_point_4:
-          Value: true
+          Value: false
         hes_probe_standoff:
-          Value: true
-      Marker Scale: 0.200000003
+          Value: false
+      Marker Scale: 0.100000001
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
         hes_probe_base_link:
+          hes_probe_camera_mount:
+            deimos_base_link:
+              deimos_center:
+                deimos_cameraLeft:
+                  deimos_cameraLeft_optical:
+                    {}
+                  deimos_depth_optical_frame:
+                    {}
+                deimos_cameraRight:
+                  deimos_cameraRight_optical:
+                    {}
+              deimos_mount_point_1:
+                {}
+              deimos_mount_point_2:
+                {}
+              deimos_probe_mount:
+                {}
           hes_probe_center:
             hes_probe_lens:
               hes_probe_standoff:
@@ -138,25 +261,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 0.642570853
+      Distance: 0.446353734
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.00843119901
-        Y: 0.0159472842
-        Z: 0.0046179546
+        X: 0.0120492969
+        Y: 0.0937025547
+        Z: -0.00755129708
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.36539793
+      Pitch: 0.22020261
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 2.24038696
+      Yaw: 2.38038516
     Saved: ~
 Window Geometry:
   Displays:
