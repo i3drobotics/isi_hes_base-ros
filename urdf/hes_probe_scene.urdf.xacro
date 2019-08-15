@@ -3,7 +3,7 @@
 Copyright (c) 2019, I3D Robotics Ltd.
 -->
 
-<robot name="phobos_nuclear" 
+<robot name="isi_hes_probe_deimos" 
     xmlns:xacro="http://ros.org/wiki/xacro">
 
     <xacro:include filename="$(find isi_hes_base)/urdf/hes_probe.urdf.xacro"/>
